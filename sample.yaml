@@ -1,0 +1,49 @@
+- monitor:
+    name: monitorA
+    interval: 4
+    timeout: 3
+    probe:
+        type: monitorA
+        duration: 10
+    actions:
+        - type: alarm
+          method: POST
+          url_fail: http://10.xxx.5.xxx:8008/v1/raw
+          uuid: "taskmonitor-fail"
+          module: ccs
+          method: 1
+          message: "taskmonitor fail msg (uuid: taskmonitor-fail)"
+          receiver: lkong
+
+        - type: alarm
+          method: POST
+          url_recover: http://10.xxx.5.xxx:8008/v1/raw
+          uuid: "taskmonitor-recover"
+          module: ccs
+          method: 1
+          message: "taskmonitor recover msg (uuid: taskmonitor-recover)"
+          receiver: lkong
+- monitor:
+    name: monitorB
+    interval: 4
+    timeout: 3
+    probe:
+        type: monitorB
+    actions:
+        - type: alarm
+          method: POST
+          url_fail: http://10.xxx.5.xxx:8008/v1/raw
+          uuid: "taskmonitor-fail"
+          module: ccs
+          method: 1
+          message: "taskmonitor fail msg (uuid: taskmonitor-fail)"
+          receiver: lkong
+
+        - type: alarm
+          method: POST
+          url_recover: http://10.xxx.5.xxx:8008/v1/raw
+          uuid: "taskmonitor-recover"
+          module: ccs
+          method: 1
+          message: "taskmonitor recover msg (uuid: taskmonitor-recover)"
+          receiver: lkong
